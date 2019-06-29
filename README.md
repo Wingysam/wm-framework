@@ -9,7 +9,7 @@ Paste this as your welcome message:
 
 </script>
 
-<script src="https://wingysam.github.io/wm-framework/framework.js"></script>
+<script src="https://wingysam.github.io/wm-framework/index.js"></script>
 ```
 
 ## Configuration
