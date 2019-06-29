@@ -20,7 +20,7 @@ function parseConfig (configText) {
     line = line.trim()
     if (line.startsWith('@')) {
       mode = 'array'
-      array = line.substring(1)
+      array = line.substring(1).toLowerCase()
       config[array] = []
       continue
     }
@@ -29,7 +29,7 @@ function parseConfig (configText) {
         if (!line) continue
         const split = line.split(' ')
         if (split.length < 2) continue
-        config[split.shift()] = split.join(' ')
+        config[split.shift().toLowerCase()] = split.join(' ')
         break
       case 'array':
         if (!line) {
