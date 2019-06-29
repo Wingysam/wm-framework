@@ -1,5 +1,3 @@
-WM Framework
-============
 Blockheads Welcome Message Framework
 
 ## Add to WM
@@ -25,7 +23,7 @@ key value
 ```
 worldname Demo World
 tag Tag of the world
-background url('https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_960_720.jpg' cover)
+background url('http://i63.tinypic.com/qq4dxc.png')
 backgroundsize cover
 ```
 
