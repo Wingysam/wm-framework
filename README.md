@@ -1,4 +1,5 @@
 Blockheads Welcome Message Framework
+# [Guide](guide)
 
 ## Add to WM
 Paste this as your welcome message:
