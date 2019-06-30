@@ -51,6 +51,7 @@ const config = parseConfig(document.querySelector("script[type='config']").textC
 console.log(config)
 
 const customTop = document.querySelector('div#custom-top')
+const customMiddle = document.querySelector('div#custom-middle')
 const customBottom = document.querySelector('div#custom-bottom')
 
 document.body.outerHTML = `
@@ -60,13 +61,14 @@ document.body.outerHTML = `
   <section class="section">
     <div class="container">
       <div class="content">
+        <div id="custom-top" class="is-hidden"></div>
         <h1 class="title">
           World
         </h1>
         <p class="subtitle is-hidden">
         Tag
         </p>
-        <div id="custom-top" class="is-hidden"></div>
+        <div id="custom-middle" class="is-hidden"></div>
         <div id="lists"></div>
         <div id="custom-bottom" class="is-hidden"></div>
       </div>
@@ -78,6 +80,12 @@ document.body.outerHTML = `
 if (customTop) {
   const element = document.querySelector('#custom-top')
   element.innerHTML = customTop.innerHTML
+  element.classList.remove('is-hidden')
+}
+
+if (customMiddle) {
+  const element = document.querySelector('#custom-middle')
+  element.innerHTML = customMiddle.innerHTML
   element.classList.remove('is-hidden')
 }
 
