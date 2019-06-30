@@ -1,0 +1,21 @@
+{
+  "name": "wm-framework",
+  "version": "1.0.0",
+  "description": "Blockheads Welcome Message Framework",
+  "scripts": {
+    "build": "browserify src/index.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wingysam/wm-framework.git"
+  },
+  "author": "Wingysam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wingysam/wm-framework/issues"
+  },
+  "homepage": "https://wingysam.github.io/wm-framework/",
+  "dependencies": {
+    "browserify": "^16.2.3"
+  }
+}
