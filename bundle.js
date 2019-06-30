@@ -15,13 +15,14 @@ require('./writeHTML')()
 // Writers
 require('./writers/background')(config)
 require('./writers/custom')(customDivs)
+require('./writers/votepopup')(config)
 require('./writers/subtitle')(config)
 require('./writers/badges')(config)
 require('./writers/lists')(config)
 require('./writers/title')({ worldInfo, config })
 // End Writers
 
-},{"./parseConfig":2,"./readers/custom":3,"./readers/worldInfo":4,"./writeHTML":5,"./writers/background":6,"./writers/badges":7,"./writers/custom":8,"./writers/lists":9,"./writers/subtitle":10,"./writers/title":11}],2:[function(require,module,exports){
+},{"./parseConfig":2,"./readers/custom":3,"./readers/worldInfo":4,"./writeHTML":5,"./writers/background":6,"./writers/badges":7,"./writers/custom":8,"./writers/lists":9,"./writers/subtitle":10,"./writers/title":11,"./writers/votepopup":12}],2:[function(require,module,exports){
 function parseConfig (configText) {
   let config = {}
   let lists = []
@@ -87,6 +88,17 @@ module.exports = () => {
     </style>
     <section class="section">
       <div class="container">
+        <div id="vote-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="box has-text-centered">
+              <span class="is-size-3">Please vote for us on BlockheadsFans!</span>
+              <br>
+              <a id="vote-modal-button" class="button is-primary is-large">Vote</a>
+            </div>
+          </div>
+          <button id="vote-modal-close" class="modal-close is-large" aria-label="close"></button>
+        </div>
         <div class="content">
           <div id="custom-top" class="is-hidden"></div>
           <h1 class="title">
@@ -212,5 +224,42 @@ module.exports = ({ worldInfo, config }) => {
   if (config.config.worldname === 'off') title.classList.add('is-hidden')
   title.textContent = worldInfo.name
   if (config.config.worldname) title.textContent = config.config.worldname
+}
+},{}],12:[function(require,module,exports){
+const LAST_VOTED_LOCALSTORAGE_ID = 'wm-framework.lastVoted'
+
+function promptToVote (id) {
+  const voteModal = document.querySelector('#vote-modal')
+
+  document.querySelector('#vote-modal-button')
+    .addEventListener('click', () => {
+      localStorage.setItem(LAST_VOTED_LOCALSTORAGE_ID, new Date())
+      window.location.href = `http://blockheadsfans.com/servers/vote.php?id=${id}`
+    })
+
+  voteModal.classList.add('is-active')
+
+  document.querySelector('#vote-modal-close')
+    .addEventListener('click', () => {
+      voteModal.classList.remove('is-active')
+    })
+}
+
+module.exports = config => {
+  if (!config.config.votepopup) return
+
+  const lastVoted = localStorage.getItem(LAST_VOTED_LOCALSTORAGE_ID)
+  
+  if (!lastVoted) promptToVote(config.config.votepopup)
+
+  const lastVotedDate = Date.parse(lastVoted)
+
+  const date = new Date()
+
+  date.setHours(date.getHours() - 6)
+
+  if (lastVotedDate > date) return
+
+  promptToVote(config.config.votepopup)
 }
 },{}]},{},[1]);

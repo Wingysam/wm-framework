@@ -47,6 +47,13 @@ Or:
 background lightgreen
 ```
 
+## VotePopup
+Prompt users to vote every six hours (voting on another server using the framework is detected).
+Input is BlockheadsFans Serverlist ID.
+```
+votepopup 6877
+```
+
 ## Badges
 You can have badges that are fetched from the internet after the Welcome Message loads with these.
 You can have the label for the badge after the badge input.

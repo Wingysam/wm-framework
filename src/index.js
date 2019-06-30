@@ -14,6 +14,7 @@ require('./writeHTML')()
 // Writers
 require('./writers/background')(config)
 require('./writers/custom')(customDivs)
+require('./writers/votepopup')(config)
 require('./writers/subtitle')(config)
 require('./writers/badges')(config)
 require('./writers/lists')(config)

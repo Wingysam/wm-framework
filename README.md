@@ -22,36 +22,19 @@ key value
 
 ### Key/Value
 ```
-worldname Demo World
-tag Tag of the world
-background url('http://i63.tinypic.com/qq4dxc.png')
-backgroundsize cover
-```
-#### Tags
-```
-bhfans 6877
-wingy 1189b0f547908e1c3328e62303f7882c
-```
-You can also put the label of the tag after the id for the value
-```
-bhfans 6877 BHFans Votes
-wingy 1189b0f547908e1c3328e62303f7882c Players in world
+key1 value1
+key2 value2
 ```
 
 ### List
 ```
-@Admins
-Wingy
-majicDave
-Katnis Everdin
+@List Name
+List Item 1
+List Item 2
 
-@Mods
-Mod 1
-Mod 2
-
-@Rules
-No hacking
-No duping
+@List Name 2
+List Item 1
+List Item 2
 ```
 End the list with a blank line
 

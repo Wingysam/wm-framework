@@ -5,6 +5,17 @@ module.exports = () => {
     </style>
     <section class="section">
       <div class="container">
+        <div id="vote-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="box has-text-centered">
+              <span class="is-size-3">Please vote for us on BlockheadsFans!</span>
+              <br>
+              <a id="vote-modal-button" class="button is-primary is-large">Vote</a>
+            </div>
+          </div>
+          <button id="vote-modal-close" class="modal-close is-large" aria-label="close"></button>
+        </div>
         <div class="content">
           <div id="custom-top" class="is-hidden"></div>
           <h1 class="title">
