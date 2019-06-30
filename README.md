@@ -7,7 +7,7 @@ Paste this as your welcome message:
 
 </script>
 
-<script src="https://wingysam.github.io/wm-framework/index.js"></script>
+<script src="https://wingysam.github.io/wm-framework/bundle.js"></script>
 ```
 
 ## Configuration
