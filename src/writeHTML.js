@@ -6,7 +6,7 @@ module.exports = () => {
     <section class="section">
       <div class="container">
         <div id="vote-modal" class="modal">
-          <div class="modal-background"></div>
+          <div id="vote-modal-background" class="modal-background"></div>
           <div class="modal-content">
             <div class="box has-text-centered">
               <span id="vote-modal-message" class="is-size-3"></span>

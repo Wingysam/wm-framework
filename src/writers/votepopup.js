@@ -18,6 +18,11 @@ function promptToVote (id, message) {
     .addEventListener('click', () => {
       voteModal.classList.remove('is-active')
     })
+
+  document.querySelector('#vote-modal-background')
+    .addEventListener('click', () => {
+      voteModal.classList.remove('is-active')
+    })
 }
 
 module.exports = config => {
