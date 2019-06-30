@@ -152,15 +152,21 @@ function addBadge (label, value) {
 }
 
 if (config.config.bhfans) {
-  fetch(`https://wm.bh.wingysam.xyz/bhfans/${config.config.bhfans}`)
+  const split = config.config.bhfans.split(' ')
+  const id = split.shift()
+  const label = split.join(' ')
+  fetch(`https://wm.bh.wingysam.xyz/bhfans/${id}`)
     .then(res => res.text())
-    .then(res => addBadge('BHFans', res))
+    .then(res => addBadge(label || 'Votes', res))
 }
 
 if (config.config.wingy) {
-  fetch(`https://block.wingysam.xyz/api/worlds/${config.config.wingy}/players`)
+  const split = config.config.wingy.split(' ')
+  const id = split.shift()
+  const label = split.join(' ')
+  fetch(`https://block.wingysam.xyz/api/worlds/${id}/players`)
     .then(res => res.text())
-    .then(res => addBadge('Online', res))
+    .then(res => addBadge(label || 'Online', res))
 }
 
 config.lists.forEach(list => addList(list[0], list[1]))

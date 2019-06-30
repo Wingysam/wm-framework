@@ -31,6 +31,11 @@ backgroundsize cover
 bhfans 6877
 wingy 1189b0f547908e1c3328e62303f7882c
 ```
+You can also put the label of the tag after the id for the value
+```
+bhfans 6877 BHFans Votes
+wingy 1189b0f547908e1c3328e62303f7882c Players in world
+```
 
 ### List
 ```
