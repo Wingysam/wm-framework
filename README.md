@@ -47,4 +47,4 @@ End the list with a blank line
 ## Custom HTML
 Add a `div` with ID `custom-top` or `custom-bottom`.
 
-`custom-top` appears right under the title, `custom-bottom` is under *everything*.
+`custom-top` appears at the top, `custom-middle` is above lists but under title, `custom-bottom` is under lists.
