@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Blockheads Welcome Message Framework",
   "scripts": {
-    "build": "browserify src/index.js -o bundle.js"
+    "build": "browserify -p tinyify src/index.js -o bundle.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
   },
   "homepage": "https://wingysam.github.io/wm-framework/",
   "dependencies": {
-    "browserify": "^16.2.3"
+    "browserify": "^16.2.3",
+    "tinyify": "^2.5.1"
   }
 }
