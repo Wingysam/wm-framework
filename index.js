@@ -167,3 +167,5 @@ config.lists.forEach(list => addList(list[0], list[1]))
 
 if (config.config.background) document.body.style.background = config.config.background
 if (config.config.backgroundsize) document.body.style.backgroundSize = config.config.backgroundsize
+
+window.onerror = function(message, source, lineno, colno, error) { alert(message) }
