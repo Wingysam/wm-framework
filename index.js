@@ -68,6 +68,7 @@ document.body.outerHTML = `
         <p class="subtitle is-hidden">
         Tag
         </p>
+        <div id="tags" class="field is-grouped is-grouped-multiline"></div>
         <div id="custom-middle" class="is-hidden"></div>
         <div id="lists"></div>
         <div id="custom-bottom" class="is-hidden"></div>
@@ -138,6 +139,33 @@ function addList (listName, list) {
   }
 
   document.querySelector('#lists').appendChild(div)
+}
+
+function addBadge (label, value) {
+  const control = document.createElement('div')
+  control.classList.add('control')
+
+  const tags = document.createElement('div')
+  tags.classList.add('tags', 'has-addons')
+  control.appendChild(tags)
+
+  const labelTag = document.createElement('span')
+  labelTag.textContent = label
+  labelTag.classList.add('tag', 'is-dark')
+  tags.appendChild(labelTag)
+
+  const valueTag = document.createElement('span')
+  valueTag.textContent = value
+  valueTag.classList.add('tag', 'is-info')
+  tags.appendChild(valueTag)
+
+  document.querySelector('#tags').appendChild(control)
+}
+
+if (config.config.bhfans) {
+  fetch(`https://wm.bh.wingysam.xyz/bhfans/${config.config.bhfans}`)
+    .then(res => res.text())
+    .then(res => addBadge('BHFans', res))
 }
 
 config.lists.forEach(list => addList(list[0], list[1]))

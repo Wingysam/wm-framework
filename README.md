@@ -26,6 +26,10 @@ tag Tag of the world
 background url('http://i63.tinypic.com/qq4dxc.png')
 backgroundsize cover
 ```
+#### Tags
+```
+bhfans 6877
+```
 
 ### List
 ```
