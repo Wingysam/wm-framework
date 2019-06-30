@@ -21,7 +21,7 @@ function parseConfig (configText) {
     line = line.trim()
     if (line.startsWith('@')) {
       mode = 'array'
-      arrayName = line.substring(1).toLowerCase()
+      arrayName = line.substring(1)
       array = []
       continue
     }
