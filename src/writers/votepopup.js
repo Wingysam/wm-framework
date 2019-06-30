@@ -1,6 +1,9 @@
 const LAST_VOTED_LOCALSTORAGE_ID = 'wm-framework.lastVoted'
 
-function promptToVote (id) {
+function promptToVote (id, message) {
+  document.querySelector('#vote-modal-message')
+    .textContent = message
+
   const voteModal = document.querySelector('#vote-modal')
 
   document.querySelector('#vote-modal-button')
@@ -20,9 +23,13 @@ function promptToVote (id) {
 module.exports = config => {
   if (!config.config.votepopup) return
 
+  const split = config.config.votepopup.split(' ')
+  const id = split.shift()
+  const message = split.join(' ') || 'Please vote for us on BlockheadsFans!'
+
   const lastVoted = localStorage.getItem(LAST_VOTED_LOCALSTORAGE_ID)
   
-  if (!lastVoted) promptToVote(config.config.votepopup)
+  if (!lastVoted) promptToVote(id, message)
 
   const lastVotedDate = Date.parse(lastVoted)
 
@@ -32,5 +39,5 @@ module.exports = config => {
 
   if (lastVotedDate > date) return
 
-  promptToVote(config.config.votepopup)
+  promptToVote(id, message)
 }

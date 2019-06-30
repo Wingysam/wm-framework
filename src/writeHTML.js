@@ -9,7 +9,7 @@ module.exports = () => {
           <div class="modal-background"></div>
           <div class="modal-content">
             <div class="box has-text-centered">
-              <span class="is-size-3">Please vote for us on BlockheadsFans!</span>
+              <span id="vote-modal-message" class="is-size-3"></span>
               <br>
               <a id="vote-modal-button" class="button is-primary is-large">Vote</a>
             </div>

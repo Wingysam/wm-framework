@@ -49,9 +49,9 @@ background lightgreen
 
 ## VotePopup
 Prompt users to vote every six hours (voting on another server using the framework is detected).
-Input is BlockheadsFans Serverlist ID.
+Input is BlockheadsFans Serverlist ID, then optionally a vote request message.
 ```
-votepopup 6877
+votepopup 6877 Hey! I'd appreciate if you'd vote for the server. Thanks!
 ```
 
 ## Badges
