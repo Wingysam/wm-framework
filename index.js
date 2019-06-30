@@ -157,6 +157,12 @@ if (config.config.bhfans) {
     .then(res => addBadge('BHFans', res))
 }
 
+if (config.config.wingy) {
+  fetch(`https://block.wingysam.xyz/api/worlds/${config.config.wingy}/players`)
+    .then(res => res.text())
+    .then(res => addBadge('Online', res))
+}
+
 config.lists.forEach(list => addList(list[0], list[1]))
 
 if (config.config.background) document.body.style.background = config.config.background
