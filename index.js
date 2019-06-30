@@ -111,17 +111,6 @@ if (config.config.worldname) title.textContent = config.config.worldname
 document.querySelector('.subtitle').textContent = config.config.tag
 if (config.config.tag) document.querySelector('.subtitle').classList.remove('is-hidden')
 
-function addListOld (list, ul) {
-  if (list && Array.isArray(list)) {
-    for (const item of list) {
-      const li = document.createElement('li')
-      li.textContent = item
-      ul.appendChild(li)
-    }
-    ul.parentElement.classList.remove('is-hidden')
-  }
-}
-
 function addList (listName, list) {
   const div = document.createElement('div')
 
