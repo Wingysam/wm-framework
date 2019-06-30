@@ -14,14 +14,15 @@ document.querySelector('div#spoiler')
 
 function parseConfig (configText) {
   let config = {}
+  let lists = []
   let mode = 'normal'
   let array = ''
   for (let line of configText.split('\n')) {
     line = line.trim()
     if (line.startsWith('@')) {
       mode = 'array'
-      array = line.substring(1).toLowerCase()
-      config[array] = []
+      arrayName = line.substring(1).toLowerCase()
+      array = []
       continue
     }
     switch (mode) {
@@ -33,15 +34,17 @@ function parseConfig (configText) {
         break
       case 'array':
         if (!line) {
+          lists.push([ arrayName, array ])
+
           mode = 'normal'
           continue
         }
-        config[array].push(line)
+        array.push(line)
         break
     }
   }
 
-  return config
+  return { config, lists }
 }
 
 const config = parseConfig(document.querySelector("script[type='config']").textContent)
@@ -64,18 +67,7 @@ document.body.outerHTML = `
         Tag
         </p>
         <div id="custom-top" class="is-hidden"></div>
-        <div id="rules" class="is-hidden">
-          <h2>Rules</h2>
-          <ul></ul>
-        </div>
-        <div id="admins" class="is-hidden">
-          <h2>Admins</h2>
-          <ul></ul>
-        </div>
-        <div id="mods" class="is-hidden">
-          <h2>Mods</h2>
-          <ul></ul>
-        </div>
+        <div id="lists"></div>
         <div id="custom-bottom" class="is-hidden"></div>
       </div>
     </div>
@@ -103,18 +95,14 @@ document.querySelector('head').innerHTML = `
 `
 
 const title = document.querySelector('.title')
-if (config.worldname === 'off') title.classList.add('is-hidden')
+if (config.config.worldname === 'off') title.classList.add('is-hidden')
 title.textContent = worldInfo.name
-if (config.worldname) title.textContent = config.worldname
+if (config.config.worldname) title.textContent = config.config.worldname
 
-document.querySelector('.subtitle').textContent = config.tag
-if (config.tag) document.querySelector('.subtitle').classList.remove('is-hidden')
+document.querySelector('.subtitle').textContent = config.config.tag
+if (config.config.tag) document.querySelector('.subtitle').classList.remove('is-hidden')
 
-addList(config.rules, document.querySelector('#rules > ul'))
-addList(config.admins, document.querySelector('#admins > ul'))
-addList(config.mods, document.querySelector('#mods > ul'))
-
-function addList (list, ul) {
+function addListOld (list, ul) {
   if (list && Array.isArray(list)) {
     for (const item of list) {
       const li = document.createElement('li')
@@ -125,5 +113,26 @@ function addList (list, ul) {
   }
 }
 
-if (config.background) document.body.style.background = config.background
-if (config.backgroundsize) document.body.style.backgroundSize = config.backgroundsize
+function addList (listName, list) {
+  const div = document.createElement('div')
+
+  const h2 = document.createElement('h2')
+  h2.textContent = listName
+  div.appendChild(h2)
+
+  const ul = document.createElement('ul')
+  div.appendChild(ul)
+
+  for (const item of list) {
+    const li = document.createElement('li')
+    li.textContent = item
+    ul.appendChild(li)
+  }
+
+  document.querySelector('#lists').appendChild(div)
+}
+
+config.lists.forEach(list => addList(list[0], list[1]))
+
+if (config.config.background) document.body.style.background = config.config.background
+if (config.config.backgroundsize) document.body.style.backgroundSize = config.config.backgroundsize

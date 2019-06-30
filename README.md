@@ -29,16 +29,16 @@ backgroundsize cover
 
 ### List
 ```
-@admins
+@Admins
 Wingy
 majicDave
 Katnis Everdin
 
-@mods
+@Mods
 Mod 1
 Mod 2
 
-@rules
+@Rules
 No hacking
 No duping
 ```
