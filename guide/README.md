@@ -30,13 +30,19 @@ You may want to configure it so it is not all capitals.
 worldname Rabbithole
 ```
 
+## World Name Font
+By setting `worldnamefont` to `bh` the title's font is the Blockheads font.
+```
+worldnamefont bh
+```
+
 ## Tag
 The subtitle has no default, but can be defined with `tag`.
 ```
 tag Join the wonderland down to the Rabbit Hole!
 ```
 
-## Background/BackgroundSize
+## Background/Background Size
 You can set a CSS background with `background` and `backgroundsize`.
 ```
 background url('http://i63.tinypic.com/qq4dxc.png')

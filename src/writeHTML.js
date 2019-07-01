@@ -2,6 +2,10 @@ module.exports = () => {
   document.body.outerHTML = `
   <body>
     <style>
+      @font-face {
+        font-family: "blockheads";
+        src: url("http://theblockheads.net/fonts/BlockheadsFont-Regular.ttf");
+      }
     </style>
     <section class="section">
       <div class="container">

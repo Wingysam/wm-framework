@@ -16,6 +16,7 @@ require('./tasks/music')(config)
 // End Tasks
 
 // Writers
+require('./writers/worldnamefont')(config)
 require('./writers/background')(config)
 require('./writers/custom')(customDivs)
 require('./writers/votepopup')(config)
