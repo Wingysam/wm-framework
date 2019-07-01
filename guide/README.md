@@ -54,6 +54,13 @@ Input is BlockheadsFans Serverlist ID, then optionally a vote request message.
 votepopup 6877 Hey! I'd appreciate if you'd vote for the server. Thanks!
 ```
 
+## Music
+Play a music file when the person interacts with the welcome message with `music`.
+Input is an audio file URL.
+```
+music http://23.237.126.42/ost/harvest-moon-snes/kfhknozv/03_Naming%20Screen.mp3
+```
+
 ## Badges
 You can have badges that are fetched from the internet after the Welcome Message loads with these.
 You can have the label for the badge after the badge input.

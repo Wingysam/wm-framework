@@ -11,6 +11,10 @@ const customDivs = require('./readers/custom')
 
 require('./writeHTML')()
 
+// Tasks
+require('./tasks/music')(config)
+// End Tasks
+
 // Writers
 require('./writers/background')(config)
 require('./writers/custom')(customDivs)
