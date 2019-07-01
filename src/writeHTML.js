@@ -18,12 +18,8 @@ module.exports = () => {
         </div>
         <div class="content">
           <div id="custom-top" class="is-hidden"></div>
-          <h1 class="title">
-            World
-          </h1>
-          <p class="subtitle is-hidden">
-          Tag
-          </p>
+          <h1 class="title"></h1>
+          <p class="subtitle is-hidden"></p>
           <div id="tags" class="field is-grouped is-grouped-multiline"></div>
           <div id="custom-middle" class="is-hidden"></div>
           <div id="lists"></div>
