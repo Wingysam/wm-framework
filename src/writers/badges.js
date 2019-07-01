@@ -1,5 +1,5 @@
 module.exports = config => {
-  function addBadge (label, value) {
+  function addBadge ({ label, value, link }) {
     const control = document.createElement('div')
     control.classList.add('control')
   
@@ -16,6 +16,12 @@ module.exports = config => {
     valueTag.textContent = value
     valueTag.classList.add('tag', 'is-info')
     tags.appendChild(valueTag)
+
+    if (link) {
+      tags.addEventListener('click', () => {
+        window.location.href = link
+      })
+    }
   
     document.querySelector('#tags').appendChild(control)
   }
@@ -26,7 +32,11 @@ module.exports = config => {
     const label = split.join(' ')
     fetch(`https://wm.bh.wingysam.xyz/bhfans/${id}`)
       .then(res => res.text())
-      .then(res => addBadge(label || 'Votes', res))
+      .then(votes => addBadge({
+        label: label || 'Votes',
+        value: votes,
+        link: `http://blockheadsfans.com/servers/vote.php?id=${id}`
+      }))
   }
   
   if (config.config.wingy) {
@@ -35,6 +45,9 @@ module.exports = config => {
     const label = split.join(' ')
     fetch(`https://block.wingysam.xyz/api/worlds/${id}/players`)
       .then(res => res.text())
-      .then(res => addBadge(label || 'Online', res))
+      .then(online => addBadge({
+        label: label || 'Online',
+        value: online
+      }))
   }
 }
