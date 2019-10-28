@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Blockheads Welcome Message Framework",
   "scripts": {
-    "build": "browserify -p tinyify src/index.js -o bundle.js"
+    "build": "browserify -p tinyify src/index.js -o bundle.js",
+    "watch": "watchify src/index.js -o bundle.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "dependencies": {
     "browserify": "^16.2.3",
     "tinyify": "^2.5.1"
+  },
+  "devDependencies": {
+    "watchify": "^3.11.1"
   }
 }
