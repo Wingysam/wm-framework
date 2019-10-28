@@ -98,3 +98,16 @@ Wingy
 majicDave
 Katnis Everdin
 ```
+## Password
+Instead of:
+```
+@Staff
+```
+Use:
+```
+@Staff/passw0rd
+```
+Or, if you don't like `[tap to view]`, you can use:
+```
+@Staff/passw0rd/please tap this
+```
